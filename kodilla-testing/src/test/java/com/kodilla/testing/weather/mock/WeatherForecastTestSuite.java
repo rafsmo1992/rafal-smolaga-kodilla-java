@@ -78,10 +78,10 @@ class WeatherForecastTestSuite {
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
-        double median = weatherForecast.calculateMediana();
+        double mediana = weatherForecast.calculateMediana();
 
         //Then
-        Assertions.assertEquals(25.2, median);
+        Assertions.assertEquals(25.2, mediana);
     }
 
 }

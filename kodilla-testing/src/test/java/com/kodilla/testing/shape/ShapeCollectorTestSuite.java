@@ -1,5 +1,5 @@
 package com.kodilla.testing.shape;
-/*
+
 import org.junit.jupiter.api.*;
 
 @DisplayName("TDD: Forum Test Suite 6.4")
@@ -81,24 +81,20 @@ public class ShapeCollectorTestSuite {
         void testShowFigures() {
 
             //Given
-            Shape circle = new Circle();
-            Shape circle2 = new Circle();
-            Shape triangle = new Triangle();
-            Shape triangle2 = new Triangle();
             ShapeCollector shapeCollector = new ShapeCollector();
-            shapeCollector.addFigure(circle);
-            shapeCollector.addFigure(circle2);
-            shapeCollector.addFigure(triangle);
-            shapeCollector.addFigure(triangle2);
+            Shape shape = new Square(4);
+            shapeCollector.addFigure(shape);
+            List<Shape> shapeList = new ArrayList<>();
+            shapeList.add(shape);
 
             //When
             String theShapeName = shapeCollector.showFigures();
 
             //Then
-            Assertions.assertEquals("circlecircletriangle", theShapeName);
-
+            //Assertions.assertEquals("circlecircletriangle", theShapeName);
+            Assertions.assertEquals(shapeList.toString(),theShapeName.toString());
 
         }
     }
 }
-*/
+
