@@ -14,7 +14,7 @@ public class StreamMain {
         beautifier.beautify("Text to beautify 2", (beautifiedText) -> beautifiedText.toUpperCase());
         beautifier.beautify("Text to beautify 3", (beautifiedText) -> beautifiedText + "!!!");
         beautifier.beautify("Text to beautify 4", (beautifiedText) -> ">>>" + beautifiedText + "<<<");
-        beautifier.beautify("Text to beautify 5", (beautifiedText) -> beautifiedText.toLowerCase());;
+        beautifier.beautify("Text to beautify 5", (beautifiedText) -> beautifiedText.toLowerCase());
 /*
         ExpressionExecutor expressionExecutor = new ExpressionExecutor();
         System.out.println("Calculating expressions with lambdas");
