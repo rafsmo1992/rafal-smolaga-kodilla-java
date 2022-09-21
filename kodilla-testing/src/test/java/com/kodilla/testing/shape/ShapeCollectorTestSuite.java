@@ -88,11 +88,12 @@ public class ShapeCollectorTestSuite {
             shapeList.add(shape);
 
             //When
-            List<Shape> shapeResultList = shapeCollector.getShapeCollection();
+            //List<Shape> shapeResultList = shapeCollector.getShapeCollection();
+            String shapeResultList = shapeCollector.getFigure(0).toString();
 
             //Then
-            Assertions.assertEquals(shapeList.toString(),shapeResultList.toString());
-
+            //Assertions.assertEquals(shapeList.toString(),shapeResultList.toString());
+            Assertions.assertEquals(shapeResultList, shapeCollector.showFigures());
         }
     }
 }

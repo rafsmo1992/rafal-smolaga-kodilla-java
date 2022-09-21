@@ -26,9 +26,12 @@ public class ShapeCollector {
             return null;
         }
     }
-    public String showFigures(){
-        System.out.println(shapeCollection.toString());
-        return null;
+    public String showFigures() {
+        String result = "";
+        for (Shape shape : shapeCollection) {
+            result += shape;
+        }
+        return result;
     }
 
 }
