@@ -5,4 +5,7 @@ findProject(':kodilla-testing:user')?.name = 'user'
 include 'kodilla-stream'
 include 'exception'
 include 'kodilla-exception'
+include 'TicTacToeConsole'
+include 'kodilla-rps'
+include 'kodilla-good-patterns'
 
