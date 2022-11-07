@@ -1,3 +1,5 @@
+package com.kodilla.rps;
+
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;

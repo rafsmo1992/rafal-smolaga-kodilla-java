@@ -1,5 +1,4 @@
-import static RPSLS.RPSGame.scan;
-import static
+package com.kodilla.rps;
 
 public class RpsRunner {
 
@@ -31,7 +30,7 @@ public class RpsRunner {
             while (playAgain != 'x' && playAgain != 'n') {
                 System.out.println("\nPress x to end the game\n" +
                         "Press n to start new game");
-                playAgain = scan.next().charAt(0);
+                playAgain = RpsGame.scan.next().charAt(0);
 
             }
 

@@ -1,8 +1,8 @@
+package com.kodilla.rps;
+
 import java.util.InputMismatchException;
 
-import static RPSLS.RPSGame.scan;
-import static com.kodilla.rps.RPSGame.scan;
-import static kodilla-course.kodiila-rps.RPSGame.scan;
+
 public class RpsSettings {
 
     private int roundsQuantity = 0;
@@ -11,18 +11,18 @@ public class RpsSettings {
     public void printInitialInfo() {
         System.out.println("ROCK-PAPER-SCISSORS-LIZARD-SPOCK Game");
         System.out.println("What is your name?: ");
-        playerName = scan.nextLine();
+        playerName = RpsGame.scan.nextLine();
 
         boolean correctNumber = false;
         while (!correctNumber){
             try {
                 System.out.println("How many rounds to win?: ");
-                roundsQuantity = scan.nextInt();
+                roundsQuantity = RpsGame.scan.nextInt();
                 correctNumber = true;
             } catch (InputMismatchException e){
                 System.out.println("Enter the valid number of rounds!");
                 correctNumber = false;
-                String word = scan.nextLine();
+                String word = RpsGame.scan.nextLine();
             }
         }
 
