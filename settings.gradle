@@ -8,4 +8,4 @@ include 'kodilla-exception'
 include 'TicTacToeConsole'
 include 'kodilla-rps'
 include 'kodilla-good-patterns'
-
+include 'kodilla-spring'
