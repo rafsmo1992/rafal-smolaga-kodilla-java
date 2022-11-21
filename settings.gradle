@@ -10,3 +10,5 @@ include 'kodilla-rps'
 include 'kodilla-good-patterns'
 include 'kodilla-spring'
 include 'kodilla-spring-web'
+include 'kodilla-patterns'
+
