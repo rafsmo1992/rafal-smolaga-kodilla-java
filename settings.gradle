@@ -1,5 +1,6 @@
 rootProject.name = 'kodilla-course'
 include 'kodilla-testing'
+include 'kodilla-course'
 include 'kodilla-stream'
 include 'exception'
 include 'kodilla-exception'
@@ -7,4 +8,5 @@ include 'TicTacToeConsole'
 include 'kodilla-rps'
 include 'kodilla-good-patterns'
 include 'kodilla-patterns'
+include 'kodilla-jdbc'
 
