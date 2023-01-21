@@ -6,19 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedQuery(
-        name = "Employee.findEmployeeByLastname",
-        query = "FROM Employee where lastname = :LASTNAME"
+        name = "Employee.findByLastName",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
 )
-@NamedNativeQuery(
-        name = "Employee.findEmployeeByLastnameFragment",
-        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', :FRAGMENT , '%')",
-        resultClass = Employee.class
+@NamedQuery(
+        name = "Employee.findEmployeesWithNameThatContains",
+        query = "From Employee where lastname LIKE concat('%', :ARG, '%')"
 )
 @Entity
-@Table(name = "EMPLOYEES")
+@Table(name = "EMPLOYEE")
 public class Employee {
 
-    private int id;
+    private long id;
     private String firstname;
     private String lastname;
     private List<Company> companies = new ArrayList<>();
@@ -35,8 +34,12 @@ public class Employee {
     @GeneratedValue
     @NotNull
     @Column(name = "EMPLOYEE_ID", unique = true)
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    private void setId(long id) {
+        this.id = id;
     }
 
     @NotNull
@@ -45,21 +48,17 @@ public class Employee {
         return firstname;
     }
 
+    private void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
     @NotNull
     @Column(name = "LASTNAME")
     public String getLastname() {
         return lastname;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public void setLastname(String lastname) {
+    private void setLastname(String lastname) {
         this.lastname = lastname;
     }
 

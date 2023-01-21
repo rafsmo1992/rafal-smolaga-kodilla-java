@@ -5,17 +5,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
 @Repository
-public interface CompanyDao extends CrudRepository<Company, Integer> {
+public interface CompanyDao extends CrudRepository<Company, Long> {
 
-    @Query(nativeQuery = true)
-    List<Company> findCompanyByFirstThreeLetters(@Param("LETTERS") String letters);
-
-    @Query(nativeQuery = true)
-    List<Company> findCompanyByNameFragment(@Param("FRAGMENT") String letters);
+    @Query
+    List<Company> findByTheFirstThreeLetters(@Param("NAME") String name);
+    @Query
+    List<Company> findCompaniesWithNameThatContains(@Param("ARG") String anyString);
 }
