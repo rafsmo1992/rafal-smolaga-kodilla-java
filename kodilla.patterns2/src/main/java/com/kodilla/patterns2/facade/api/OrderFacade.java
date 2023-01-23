@@ -23,7 +23,7 @@ public class OrderFacade {
     public void processOrder(OrderDto order, Long userId) throws OrderProcessingException {
         boolean wasError = false;
         Long orderId = shopService.openOrder(userId);
-        LOGGER.info("Registering new order, ID: " + orderId);
+        LOGGER.info("Processing new order, ID nr: " + orderId);
         if (orderId < 0) {
             LOGGER.error(OrderProcessingException.ERR_NOT_AUTHORISED);
             wasError = true;
@@ -31,32 +31,32 @@ public class OrderFacade {
         }
         try {
             for (ItemDto orderItem : order.getItems()) {
-                LOGGER.info("Adding item " + orderItem.getProductId() + ", " + orderItem.getQuantity() + " pcs");
+                LOGGER.info("Adding item " + orderItem.getProductId() + ", " + orderItem.getQuantity() + " pieces");
                 shopService.addItem(orderId, orderItem.getProductId(), orderItem.getQuantity());
             }
             BigDecimal value = shopService.calculateValue(orderId);
-            LOGGER.info("Order value is: " + value + " USD");
+            LOGGER.info("Order value is: " + value + " PLN");
             if (!shopService.doPayment(orderId)) {
                 LOGGER.error(OrderProcessingException.ERR_PAYMENT_REJECTED);
                 wasError = true;
                 throw new OrderProcessingException(OrderProcessingException.ERR_PAYMENT_REJECTED);
             }
-            LOGGER.info("Payment for order was done");
+            LOGGER.info("Payment for order done");
             if (!shopService.verifyOrder(orderId)) {
                 LOGGER.error(OrderProcessingException.ERR_VERIFICATION_ERROR);
                 wasError = true;
                 throw new OrderProcessingException(OrderProcessingException.ERR_VERIFICATION_ERROR);
             }
-            LOGGER.info("Order is ready to submit");
+            LOGGER.info("Order is now ready to submit");
             if (!shopService.submitOrder(orderId)) {
                 LOGGER.error(OrderProcessingException.ERR_SUBMITTING_ERROR);
                 wasError = true;
                 throw new OrderProcessingException(OrderProcessingException.ERR_SUBMITTING_ERROR);
             }
-            LOGGER.info("Order " + orderId + " submitted");
+            LOGGER.info("Order " + orderId + " has been submitted");
         } finally {
             if (wasError) {
-                LOGGER.info("Cancelling order " + orderId);
+                LOGGER.info("Cancelling order nr " + orderId);
                 shopService.cancelOrder(orderId);
             }
         }

@@ -38,7 +38,7 @@ class ShopServiceTestSuite {
                 throw new IllegalStateException("Order data is corrupted");
             }
             BigDecimal value = shopService.calculateValue(orderId);
-            System.out.println("Order value is: " + value + " USD");
+            System.out.println("Order value is: " + value + " PLN");
             if (shopService.doPayment(orderId)) {
                 System.out.println("Payment for order was done");
             } else {
